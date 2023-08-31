@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block center %}
+<h2> Formulário de Cadastro.</h2>
+
+
+<form method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        {{ form.nome_empresa }}
+    </div>
+    
+    <div class="mb-3">
+        <label for="nome" class="form-label">CNPJ</label>
+        {{ form.cnpj }}
+    </div>
+
+    <div class="mb-3">
+        <label for="nome" class="form-label">categoria</label>
+        {{ form.categoria_empresa }}
+    </div>
+
+    <div class="mb-3">
+        <label for="nome" class="form-label">quitado</label>
+        {{ form.quitado }}
+    </div>
+    
+    
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>    
+{% endblock %}

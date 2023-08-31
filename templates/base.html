@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+
+    <style>
+        header{
+            width: auto;
+            height: 80px;
+            background-color: rgb(140, 157, 229);
+        }
+
+        nav{
+            width: auto;
+            height: 30px;
+            background-color: rgb(140, 157, 229);
+            list-style: none; /* Remover marcadores de lista */
+            padding: 0; /* Remover preenchimento padrão da lista */
+            margin: 0; /* Remover margens padrão da lista */
+            display: flex; /* Criar um layout flexível para os itens da lista */
+        }
+         
+        
+
+        .logo{
+            padding: 15px;
+        }
+
+        .lista{
+            list-style: none; /* Remover marcadores de lista */
+            padding: 5px; /* Remover preenchimento padrão da lista */
+            margin-left: 10px; /* Remover margens padrão da lista */
+            display: flex; /* Criar um layout flexível para os itens da lista */
+            justify-content: flex-end; /* Alinhar os itens à direita */
+
+        }
+
+        .itens{
+            margin-right: 10px; /* Adicionar espaçamento à direita entre os itens (opcional) */
+        }
+
+        a {
+            text-decoration: none; /* Remover decoração de texto nos links (opcional) */
+            color: #ffffff; /* Cor do texto dos links (opcional) */
+        }
+
+        hr{
+            padding: 0;
+            margin: 0;
+            background-color: rgb(24, 34, 81);
+        }
+        
+        main{
+            width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo"><a href="{% url 'reserva_listar' %}">Finecap</a></h1>
+    </header>
+    <hr>
+    <nav>
+        <ul class="lista">
+            <li class="itens"><a href="{% url 'reserva_criar' %}">cadastrar</a></li>
+            <li class="itens"><a href="{% url 'reserva_listar' %}">listar</a></li>
+        </ul>
+    </nav>
+<main>
+    {% block center %}
+
+    {% endblock %}
+</main>
+</body>
+</html>

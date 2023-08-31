@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block center %}
+
+<style>
+    .container{
+        font-size: 50px;
+    }
+</style>
+<div class="container">
+    
+    <div class="row">
+        <div class="col-6">
+            <div class="">
+                <p> Empresa: {{ detalhes.nome_empresa }} </p>
+                <p> CNPJ: {{ detalhes.cnpj }} </p>
+                <p> Categoria: {{ detalhes.categoria_empresa }} </p>
+                <p> Quitado: {{ detalhes.quitado }} </p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}
