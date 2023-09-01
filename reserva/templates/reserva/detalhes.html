@@ -15,7 +15,9 @@
                 <p> Empresa: {{ detalhes.nome_empresa }} </p>
                 <p> CNPJ: {{ detalhes.cnpj }} </p>
                 <p> Categoria: {{ detalhes.categoria_empresa }} </p>
-                <p> Quitado: {{ detalhes.quitado }} </p>
+                <p> Quitado: {% if reserva.quitado == True %} Quitado {% else %} Pendente {% endif %}</p>
+
+                
             </div>
         </div>
     </div>
