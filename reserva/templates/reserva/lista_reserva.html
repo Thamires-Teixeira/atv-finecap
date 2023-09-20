@@ -3,13 +3,24 @@
 {% block center %}
 <h2> Lista de Reservas</h2>
 
+<form action="" method="GET" class="mb-3">
+  <div class="input-group-prepend">
+    <input class="form-control me-3" placeholder="Nome Empresa" type="text" name="nome_empresa" id="">
+    <input class="form-control me-3" placeholder="Quitado" type="checkbox" name="quitado" id="">
+    <input class="form-control me-3" placeholder="Valor" type="text" name="valor_stand" id="">
+    <input class="form-control me-3" placeholder="Data" type="date" name="data_reserva" id="">
+    <button type="submit" class="btn btn-primary">Buscar</button>
+  </div>
+</form>
+
 <a href="{% url 'reserva_criar' %}" class="btn btn-success mb-3">Novo Cadastro</a>
 
 <table class="table table-bordered">
   <thead>
     <tr>
+      <th>Stand</th>
       <th>Nome</th>
-      <th>CNPJ</th>
+      <th>Valor</th>
       <th>Categoria</th>
       <th>Quitado</th>
     </tr>
@@ -17,8 +28,9 @@
   <tbody>
     {% for reserva in reservas %}  
     <tr>
+      <td>{{ reserva.stand }}</td>
       <td>{{ reserva.nome_empresa }}</td>
-      <td>{{ reserva.cnpj }}</td>
+      <td>R$ {{ reserva.stand.valor }}</td>
       <td>{{ reserva.categoria_empresa }}</td>
       <td>{% if reserva.quitado == True %} Quitado {% else %} Pendente {% endif %}</td>
       <td>
