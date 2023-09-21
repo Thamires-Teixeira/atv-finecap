@@ -8,7 +8,7 @@ def reserva_remover(request, id):
     return redirect("reserva_listar")
 
 def reserva_listar(request):
-    reservas = Reserva.objects.all()
+    reservas = Reserva.objects.all().order_by('date')
 
     nome_empresa = request.GET.get('nome_empresa')
     quitado = request.GET.get('quitado')
