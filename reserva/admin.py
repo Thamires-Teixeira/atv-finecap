@@ -7,4 +7,4 @@ class ReservaAdmin(admin.ModelAdmin):
 @admin.register(Stand)
 class StandAdmin(admin.ModelAdmin):
     list_display=("localizacao", "valor")
-# Register your models here.
+
