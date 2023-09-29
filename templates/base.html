@@ -15,14 +15,14 @@
             background-color: rgb(140, 157, 229);
         }
 
-        nav{
+        .nav{
             width: auto;
             height: 30px;
             background-color: rgb(140, 157, 229);
-            list-style: none; /* Remover marcadores de lista */
-            padding: 0; /* Remover preenchimento padrão da lista */
-            margin: 0; /* Remover margens padrão da lista */
-            display: flex; /* Criar um layout flexível para os itens da lista */
+            list-style: none;
+            padding: 0; 
+            margin: 0; 
+            display: flex;
         }
          
         
@@ -32,21 +32,21 @@
         }
 
         .lista{
-            list-style: none; /* Remover marcadores de lista */
-            padding: 5px; /* Remover preenchimento padrão da lista */
-            margin-left: 10px; /* Remover margens padrão da lista */
-            display: flex; /* Criar um layout flexível para os itens da lista */
-            justify-content: flex-end; /* Alinhar os itens à direita */
+            list-style: none;
+            padding: 5px; 
+            margin-left: 10px;
+            display: flex; 
+            justify-content: flex-end;
 
         }
 
         .itens{
-            margin-right: 10px; /* Adicionar espaçamento à direita entre os itens (opcional) */
+            margin-right: 10px;
         }
 
         a {
-            text-decoration: none; /* Remover decoração de texto nos links (opcional) */
-            color: #ffffff; /* Cor do texto dos links (opcional) */
+            text-decoration: none;
+            color: #ffffff;
         }
 
         hr{
@@ -61,6 +61,12 @@
             padding: 20px;
         }
 
+        .pagination-container {
+            display: flex;
+            justify-content: center; 
+            margin-top: 20px;
+        }
+
         
     </style>
 </head>
@@ -69,7 +75,7 @@
         <h1 class="logo"><a href="{% url 'reserva_listar' %}">Finecap</a></h1>
     </header>
     <hr>
-    <nav>
+    <nav class="nav">
         <ul class="lista">
             <li class="itens"><a href="{% url 'reserva_criar' %}">cadastrar</a></li>
             <li class="itens"><a href="{% url 'reserva_listar' %}">listar</a></li>
@@ -79,6 +85,27 @@
     {% block center %}
 
     {% endblock %}
+    <div class="pagination-container">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    {% if reservas.has_previous %}
+                    <a class="page-link" href="?page={{ reservas.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    </a>
+                    {% endif %}
+                </li>
+                <li class="page-item"><a class="page-link" href="?page={{ reservas.number }}">{{ reservas.number }}</a></li>
+                <li class="page-item">
+                    {% if reservas.has_next %}
+                    <a class="page-link" href="?page={{ reservas.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    </a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
 </main>
 </body>
 </html>
